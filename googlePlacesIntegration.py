@@ -1,8 +1,9 @@
 import googlemaps
 from datetime import datetime, timedelta
+from key import Key
 
 # Define client w/ API key
-gmaps = googlemaps.Client(key='AIzaSyAD55_uoXChGGyrm0RIK4rubxopML48oO4')
+gmaps = googlemaps.Client(key= Key)
 
 # Clear file
 open("locations.txt", "w").close()

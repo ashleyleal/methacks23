@@ -8,7 +8,7 @@
   <link href="style.css" rel="stylesheet" type="text/css" />
   <style>
     body {
-      background-image: url('image.jpeg');
+      background-image: url('https://previews.123rf.com/images/fongfong/fongfong1909/fongfong190900087/130110064-doctor-in-hospital-background-with-copy-space.jpg0');
       background-repeat: no-repeat;
       background-size: cover;
     }
@@ -75,9 +75,9 @@
   </h1>
 
   <div class= 'header-block'>
-    <img src="chatbotPlaceholder.png" alt="Image 1">
+    <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTuglOiWmrnTUx3FFaMAXjSfipPO85dwxXoKLJ3wNPlSK8379v4" alt="Image 1">
     <p><br></p>
-      <label for="user-input">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; What are your symptoms? Jack will have you find the doctor!:</label>
+      <label for="user-input">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter your symptoms:</label>
     <input type="text" id="user-input" />
     <button onclick="displayUserInput()">Submit</button>
     <p id="user-output"></p>
@@ -94,8 +94,17 @@
       var userOutput = document.getElementById("user-output");
       userInputValue = userInput;
       userOutput.textContent = "You entered: " + userInput;
+      // for cohere api Set the HTTP method to POST and the destination URL
+      xhttp.open("POST", "cohereIntegration.py", true);
+
+      // Set the request header to specify the data type as text
+      xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+      // Send the user input value as the request body
+      xhttp.send("userInputValue=" + encodeURIComponent(userInputValue));
+
       
-      // Create a new instance of the XMLHttpRequest object
+      // for googleapi Create a new instance of the XMLHttpRequest object
       var xhttp = new XMLHttpRequest();
       
       // Set the HTTP method to POST and the destination URL
@@ -106,7 +115,7 @@
       
       // Send the user input value as the request body
       xhttp.send(userInput);
-    }
+  }
   </script>
 </body>
 
