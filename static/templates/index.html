@@ -1,17 +1,113 @@
 <!DOCTYPE html>
-
 <html>
-  <head>
-    <title>Learning Flask</title>
-    <meta name="description" content="homepage" />
-    <meta name="keywords" content="html tutorial template" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
-    <style>
-      h1 {font-size: 500px;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Hello from HTML</h1>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    body {
+      background-image: url('image.jpeg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .middle-block {
+      background-color: #D9D9D9;
+      padding: 150px;
+      max-width: 700px;
+      margin: auto;
+      margin-left: 140px;
+    }
+    .header-block {
+      background-color: white;
+      height: 80px;
+      max-width: 1000px;
+      margin-top:20px;
+      margin: auto;
+      border-radius: 5px; 
+      margin-left: 140px;
+    }
+    .footer-block {
+      background-color: white;
+      height: 80px;
+      max-width: 1000px;
+      margin-bottom:20px;
+      margin: auto;
+      border-radius: 5px;
+      margin-left: 140px;
+    }
+    h1 { 
+      font-size: 18px;
+      color: black;
+      margin: 2.0em;
+      font-family: "Courier New", monospace;
+    } 
+   
+
+    .small-text {
+      font-size: 0.5 em;
+    }
+    .header-block img {
+      width: 80px; /* Adjust the width as desired */
+      height: auto; /* Maintain aspect ratio */
+      margin-bottom: 10px; /* Add some spacing between images */
+    }
+    .header-block p {
+      text-align: left;
+      text-align: top;
+      font-size: 16px;
+      margin-bottom: 30px;
+      font-family: "Arial", sans-serif;
+      margin-left: 30px;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <header main_header> 
+  </header>
+  <h1>
+    SYMPTODOC- WE CARE ABOUT YOUR HEALTH
+    <br>
+    <span class='small-text'>Personalized Doctor Recommendations Based on Your Symptoms</span>
+  </h1>
+
+  <div class= 'header-block'>
+    <img src="chatbotPlaceholder.png" alt="Image 1">
+    <p><br></p>
+      <label for="user-input">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; What are your symptoms? Jack will have you find the doctor!:</label>
+    <input type="text" id="user-input" />
+    <button onclick="displayUserInput()">Submit</button>
+    <p id="user-output"></p>
+  </div>
+  <div class='middle-block'>   
+    </div>
+  <div class= 'footer-block'></div>
+  
+  <script src="script.js"></script>
+
+  <script>
+    function displayUserInput() {
+      var userInput = document.getElementById("user-input").value;
+      var userOutput = document.getElementById("user-output");
+      userInputValue = userInput;
+      userOutput.textContent = "You entered: " + userInput;
+      
+      // Create a new instance of the XMLHttpRequest object
+      var xhttp = new XMLHttpRequest();
+      
+      // Set the HTTP method to POST and the destination URL
+      xhttp.open("POST", "writeToFile.php", true);
+      
+      // Set the request header to specify the data type as text
+      xhttp.setRequestHeader("Content-Type", "text/plain");
+      
+      // Send the user input value as the request body
+      xhttp.send(userInput);
+    }
+  </script>
+</body>
+
 </html>
